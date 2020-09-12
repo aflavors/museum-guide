@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import 'semantic-ui-css/semantic.min.css'
 import Search from './components/Search'
 import "./App.css";
 
