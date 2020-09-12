@@ -8,9 +8,9 @@ import "./App.css";
 const App = () => {
   const [objects, setObjects] = useState([]);
 
-  //Search Museum Objects (set to keyword search for "sunflower")
-  const searchObjects = async () => {
-    const res = await axios.get("https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflower");
+  //Search Museum Objects (text from Search Form)
+  const searchObjects = async (text) => {
+    const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${text}`);
     console.log(res.data)
     //Empty array to pass initial objectIDs to  
     const objects = []
