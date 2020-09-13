@@ -43,11 +43,21 @@ const App = () => {
     setObject(res.data);
     setLoading(false);
   }
+
+  //Clear objects from state
+  const clearObjects = () => {
+    setObjects([]);
+    setLoading(false);
+  }
  
     return (
       <div>
         <div className="App">
-          <Search searchObjects={searchObjects}/>
+          <Search 
+          searchObjects={searchObjects} 
+          clearObjects={clearObjects}
+          showClear={objects.length > 0 ? true : false}
+          />
           <Objects loading={loading} objects={objects}/>
         </div>
       </div>
