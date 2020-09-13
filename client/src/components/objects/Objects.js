@@ -2,6 +2,7 @@ import React from 'react';
 import ObjectItem from './ObjectItem';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
+import { Card } from 'semantic-ui-react'
 
 const Objects = ({ objects, loading }) => {
     if (loading) {
@@ -9,7 +10,12 @@ const Objects = ({ objects, loading }) => {
     } else {
         return (
             <div>
-                {/* Iterate over objects for ObjectItem here */}
+                <Card.Group itemsPerRow={4}>
+                    {/* Iterate over objects for ObjectItem here */}
+                    {objects.map(object => (
+                        <ObjectItem key={object.objectID} object={object}/>
+                    ))}
+                </Card.Group>
             </div>
         )
     }

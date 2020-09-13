@@ -8,6 +8,7 @@ import "./App.css";
 
 const App = () => {
   const [objects, setObjects] = useState([]);
+  const [object, setObject] = useState({});
   const [loading, setLoading] = useState(false);
 
   //Search Museum Objects (text from Search Form)
@@ -29,6 +30,17 @@ const App = () => {
     //Set state using data in objects array
     setObjects(objects)
     //Set loading to false
+    setLoading(false);
+  }
+
+  //Search for a single museum object
+  const getObject = async (objectID) => {
+    //Set loading to true to render spinner.gif
+    setLoading(true);
+
+    const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
+
+    setObject(res.data);
     setLoading(false);
   }
  
