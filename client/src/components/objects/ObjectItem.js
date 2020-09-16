@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types';
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
 const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objectDate}}) => {
     //Destructuring this.state for access to props
@@ -17,6 +17,20 @@ const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objec
                         {artistDisplayName}
                     </Card.Description>
                 </Card.Content>
+                <Button.Group attached="bottom">
+                    <Button animated='vertical'>
+                        <Button.Content hidden>Add to Collection</Button.Content>
+                        <Button.Content visible>
+                            <Icon name='add' />
+                        </Button.Content>
+                    </Button>
+                    <Button animated='vertical'>
+                        <Button.Content hidden>Learn More</Button.Content>
+                        <Button.Content visible>
+                            <Icon name='info circle' />
+                        </Button.Content>
+                    </Button>
+                </Button.Group>    
             </Card>
         </Fragment>
     )
