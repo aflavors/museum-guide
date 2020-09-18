@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types';
 import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
-const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objectDate}}) => {
+const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objectDate, objectURL}}) => {
     //Destructuring this.state for access to props
     return (
         <Fragment>
@@ -24,7 +24,7 @@ const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objec
                             <Icon name='add' />
                         </Button.Content>
                     </Button>
-                    <Button animated='vertical'>
+                    <Button animated='vertical' href={objectURL} target="blank">
                         <Button.Content hidden>Learn More</Button.Content>
                         <Button.Content visible>
                             <Icon name='info circle' />
