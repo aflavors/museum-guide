@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import axios from 'axios';
 import 'semantic-ui-css/semantic.min.css'
 import Search from './components/objects/Search'
 import Objects from './components/objects/Objects'
+import MainMenu from './components/layout/Menu'
 import "./App.css";
+import About from "./components/pages/About";
+import MyCollection from "./components/pages/MyCollection";
 
 
 const App = () => {
@@ -51,16 +55,28 @@ const App = () => {
   }
  
     return (
-      <div>
-        <div className="App">
-          <Search 
-          searchObjects={searchObjects} 
-          clearObjects={clearObjects}
-          showClear={objects.length > 0 ? true : false}
-          />
-          <Objects loading={loading} objects={objects}/>
+      <Router>
+        <div>
+          <div className="App">
+            <MainMenu />
+            {/* <Switch> */}
+              <Route exact path="/"
+              render={props => (
+                <Fragment>
+                  <Search 
+                  searchObjects={searchObjects} 
+                  clearObjects={clearObjects}
+                  showClear={objects.length > 0 ? true : false}
+                />
+              <Objects loading={loading} objects={objects}/>
+                </Fragment>
+              )}/>
+              <Route exact path="/about" component={About}/>
+              <Route exact path="/mycollection" component={MyCollection}/>
+            {/* </Switch> */}
+          </div>
         </div>
-      </div>
+      </Router>
     )
   
 }

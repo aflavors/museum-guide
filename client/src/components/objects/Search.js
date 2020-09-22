@@ -17,8 +17,8 @@ const Search = ({ searchObjects, clearObjects, showClear }) => {
     };
     
     return (
-        <div>
-            <h3>Search Museum Objects</h3>
+        <div style={ searchMainStyle }>
+            <h2 >Search</h2>
             <Form onSubmit={onSubmit} className="ui form">
                 <label>Search objects by keyword</label>
                 <input 
@@ -48,6 +48,12 @@ Search.propTypes = {
     searchObjects: PropTypes.func.isRequired,
     clearObjects: PropTypes.func.isRequired,
     showClear: PropTypes.bool.isRequired
+}
+
+const searchMainStyle = {
+    textAlign: "left",
+    marginLeft: "10px",
+    marginTop: "10px"
 }
 
 export default Search;
