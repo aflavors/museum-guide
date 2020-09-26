@@ -8,12 +8,15 @@ import MainMenu from './components/layout/Menu'
 import "./App.css";
 import About from "./components/pages/About";
 import MyCollection from "./components/pages/MyCollection";
+import SignUpForm from "./components/pages/SignUp";
+import LoginForm from "./components/pages/Login";
 
 
 const App = () => {
   const [objects, setObjects] = useState([]);
   const [object, setObject] = useState({});
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
 
   //Search Museum Objects (text from Search Form)
   const searchObjects = async (text) => {
@@ -58,23 +61,33 @@ const App = () => {
       <Router>
         <div>
           <div className="App">
-            <MainMenu />
+            <MainMenu
+              setUser={setUser} 
+            />
             {/* <Switch> */}
               <Route exact path="/"
               render={props => (
                 <Fragment>
                   <Search 
-                  searchObjects={searchObjects} 
-                  clearObjects={clearObjects}
-                  showClear={objects.length > 0 ? true : false}
-                />
+                    searchObjects={searchObjects} 
+                    clearObjects={clearObjects}
+                    showClear={objects.length > 0 ? true : false}
+                  />
               <Objects loading={loading} objects={objects}/>
                 </Fragment>
               )}/>
               <Route exact path="/about" component={About}/>
               <Route exact path="/mycollection" component={MyCollection}/>
+              <Route exact path="/signup" component={SignUpForm} setUser={setUser}/>
+              <Route 
+                exact path="/login" 
+                render={(props) => (
+                  <LoginForm {...props} setUser={setUser} />
+                )}
+              />
             {/* </Switch> */}
           </div>
+          
         </div>
       </Router>
     )

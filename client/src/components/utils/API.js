@@ -16,5 +16,9 @@ export default {
   // Saves a object to the database
   saveObject: function(objectData) {
     return axios.post("/api/objects", objectData);
+  },
+  // Saves a user to the database
+  saveUser: function(userData) {
+    return axios.post("api/users", userData);
   }
 };

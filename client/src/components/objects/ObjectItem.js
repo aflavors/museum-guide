@@ -1,10 +1,20 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types';
-import { Card, Image, Button, Icon } from 'semantic-ui-react'
+import { Card, Button, Icon } from 'semantic-ui-react'
 import API from "../utils/API"
+
+
 
 const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objectDate, objectURL, objectID, GalleryNumber}}) => {
     //Destructuring this.state for access to props
+
+    const cardImageStyle = {
+    height: "300px",
+    backgroundImage: `url(${primaryImageSmall})`,
+    backgroundSize: "cover",
+    borderRadius: ".28571429rem",
+    marginBottom: "10px"
+    }
 
     //Setting ObjectItem component's initial state
     const [dbObjects, setDbObjects] = useState([])
@@ -47,8 +57,8 @@ const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objec
     return (
         <Fragment>
             <Card>
-                <Image src= {primaryImageSmall} wrapped ui={false} />
-                <Card.Content>
+                <Card.Content style={{ padding: "0em" }}>
+                    <Card.Header style={ cardImageStyle }/>
                     <Card.Header> {title} </Card.Header>
                     <Card.Meta>
                         <span className='date'> {objectDate} </span>

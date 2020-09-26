@@ -1,4 +1,5 @@
 module.exports = {
-    Object: require("./object")
+    Object: require("./object"),
+    User: require("./user")
   };
   

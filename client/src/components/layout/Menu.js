@@ -59,10 +59,22 @@ export default class MainMenu extends Component {
             </Dropdown> */}
             <Menu.Menu position='right'>
               <Menu.Item
+                href="/login"
+                name='log-in'
+                active={activeItem === 'log-in'}
+                onClick={this.handleItemClick}
+              />
+              <Menu.Item
+                href="/signup"
+                name='sign-up'
+                active={activeItem === 'sign-up'}
+                onClick={this.handleItemClick}
+              />
+              {this.props.user && <Menu.Item
                 name='logout'
                 active={activeItem === 'logout'}
                 onClick={this.handleItemClick}
-              />
+              />}
             </Menu.Menu>
           </Menu>
           <h2 style={ headerTextStyle }>Museum Guide</h2>
