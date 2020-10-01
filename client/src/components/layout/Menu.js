@@ -1,6 +1,6 @@
 import React, { Component, Segment } from 'react'
 import { Menu, Image, Dropdown } from 'semantic-ui-react'
-import { BrowserRouter as Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 var userStyle = {
     height: "50%",
@@ -23,49 +23,39 @@ export default class MainMenu extends Component {
       return (
         <div>
           <Menu pointing secondary>
-            <Menu.Item
-              href='/'
-              name='home'
-              active={activeItem === 'home'}
+            <Menu.Item as={ Link }
+              to='/'
+              name='Home'
+              active={activeItem === 'Home'}
               onClick={this.handleItemClick}
             />
-            <Menu.Item
-              href='/about'
-            //   as={Link} to="/about"
+            <Menu.Item as={ Link }
+              to='/about'
               name='About'
               active={activeItem === 'About'}
               onClick={this.handleItemClick}
             />
-            <Menu.Item
+            <Menu.Item as={ Link }
+              to='/search'
               name='search'
               active={activeItem === 'search'}
               onClick={this.handleItemClick}
             />
-            <Menu.Item
-              href='/mycollection'
+            <Menu.Item as={ Link }
+              to='/mycollection'
               name='my collection'
               active={activeItem === 'my collection'}
               onClick={this.handleItemClick}
             />
-            {/* <Dropdown text='Collections' pointing className='link item'>
-                <Dropdown.Menu>
-                    <Dropdown.Header>Custom</Dropdown.Header>
-                    <Dropdown.Item>My Collection</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Header>Curated</Dropdown.Header>
-                    <Dropdown.Item>Collection 1</Dropdown.Item>
-                    <Dropdown.Item>Collection 2</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown> */}
             <Menu.Menu position='right'>
-              <Menu.Item
-                href="/login"
+              <Menu.Item as={ Link }
+                to="/login"
                 name='log-in'
                 active={activeItem === 'log-in'}
                 onClick={this.handleItemClick}
               />
-              <Menu.Item
-                href="/signup"
+              <Menu.Item as={ Link }
+                to="/signup"
                 name='sign-up'
                 active={activeItem === 'sign-up'}
                 onClick={this.handleItemClick}

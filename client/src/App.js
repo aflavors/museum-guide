@@ -73,12 +73,22 @@ const App = () => {
                     clearObjects={clearObjects}
                     showClear={objects.length > 0 ? true : false}
                   />
-              <Objects loading={loading} objects={objects}/>
+              <Objects loading={loading} objects={objects} user={user}/>
                 </Fragment>
               )}/>
               <Route exact path="/about" component={About}/>
-              <Route exact path="/mycollection" component={MyCollection}/>
-              <Route exact path="/signup" component={SignUpForm} setUser={setUser}/>
+              <Route 
+                exact path="/mycollection"
+                render={(props) => (
+                  <MyCollection {...props} user={user} />
+                )}
+              />
+              <Route 
+                exact path="/signup" 
+                render={(props) => (
+                  <SignUpForm {...props} setObject={setUser}/>
+                )}
+              />
               <Route 
                 exact path="/login" 
                 render={(props) => (

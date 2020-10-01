@@ -8,6 +8,8 @@ const MyCollection = ({ user }) => {
 
     //Setting MyCollection component's initial state
     const [collectionObjects, setCollection] = useState([])
+    let [filteredObjects, filterObjects] = useState([])
+    //const [loggedInUser, setLoggedInUser] = useState([])
 
     //Loading all objects from datbase and storing in collectionObjects
     useEffect(() => {
@@ -16,34 +18,37 @@ const MyCollection = ({ user }) => {
 
     //Load objects and set to collectionObjects
     function loadCollection() {
+        console.log(user);
         API.getObjects()
-        .then(res => {
-            console.log(res.data);
+        .then(res => 
             setCollection(res.data)
-            //Filter objects by user to match current user login
-            setCollection(res.data.filter(userObject => userObject.user===`${user.email}`));
-        }).catch(err => console.log(err))
+            //filterByUser();
+
+                       
+            //insert function to filter by user
+            ).catch(err => console.log(err))
     }
 
-    //Conditional render for Collection Header 
-    const isLoggedIn = user;
-    let collectionHeader;
-    if (isLoggedIn) {
-        collectionHeader = <h2 style={collectionH2}>{user.name}'s Collection</h2>
-    } else {
-        collectionHeader = <h2 style={collectionH2}>My Collection</h2>
+    function filterByUser() {
+        filteredObjects = collectionObjects.filter(function(){
+            if(res.data.user===user.email){
+               //filteredObjects.push(res.data)
+               console.log(res.data) 
+            }
+        })
     }
 
+    // const filteredCollection = collectionObjects.filter(collectionObject)
 
     return (
         <div>
-        <div style={collectionDivStyle}>
-            {collectionHeader}
+        <nav style={collectionDivStyle}>
+            <h2 style={collectionH2}>My Collection</h2>
             <p>This is where objects added to your collection will be listed</p>
-        </div>
+        </nav>
         <Card.Group itemsPerRow={4}>
             {/* Iterate over objects for ObjectItem here */}
-            {collectionObjects.map(object => (
+            {filteredObjects.map(object => (
                 <CollectionObject key={object.objectID} object={object} loadCollection={loadCollection} />
             ))}
         </Card.Group>
@@ -54,8 +59,7 @@ const MyCollection = ({ user }) => {
 const collectionDivStyle = {
     textAlign: "left",
     marginLeft: "10px",
-    marginTop: "5px",
-    marginBottom: "25px"
+    marginTop: "5px"
 }
 
 const collectionH2 = {

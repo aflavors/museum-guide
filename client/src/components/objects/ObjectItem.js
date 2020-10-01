@@ -5,7 +5,7 @@ import API from "../utils/API"
 
 
 
-const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objectDate, objectURL, objectID, GalleryNumber}}) => {
+const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objectDate, objectURL, objectID, GalleryNumber, user}, user: loggedInUser}) => {
     //Destructuring this.state for access to props
 
     const cardImageStyle = {
@@ -37,7 +37,7 @@ const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objec
     //.Then reloads objects from the database
     function addToCollection (event) {
         event.preventDefault();
-        console.log(artistDisplayName)
+        console.log(loggedInUser)
         API.saveObject({
             title: title,
             artistDisplayName,
@@ -45,12 +45,13 @@ const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objec
             objectURL,
             primaryImageSmall,
             objectID,
-            GalleryNumber
+            GalleryNumber,
+            user: loggedInUser.email
         })
         .then(res => loadObjects())
         .catch(err => console.log(err))
 
-        console.log("Added to collection" + JSON.stringify(dbObjects))
+        console.log("User: " + loggedInUser.email + " Added " + title + " to collection")
     };
 
 
