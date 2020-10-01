@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Card, Button, Icon } from 'semantic-ui-react'
+import { Card, Button, Icon, Label } from 'semantic-ui-react'
 import API from '../utils/API';
 
 const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageSmall, objectDate, objectURL, objectID, GalleryNumber}, user, loadCollection}) => {
@@ -26,6 +26,21 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
         console.log("Object deleted")
     };
 
+    //Conditional render for On View label
+    const isOnView = GalleryNumber
+    let onViewLabel;
+
+    if(isOnView) {
+        onViewLabel = <Label fluid color='red'>
+        On View
+        <Label.Detail>Gallery: {GalleryNumber}</Label.Detail>
+        </Label>
+    } else {
+        onViewLabel = <Label basic color='grey'>
+        Not Currently On Display at Museum
+        </Label>
+    }
+
     return (
         <div>
             <Fragment>
@@ -39,6 +54,7 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
                         <Card.Description>
                             {artistDisplayName}
                         </Card.Description>
+                        {onViewLabel}
                     </Card.Content>
                     <Button 
                         animated='vertical'
