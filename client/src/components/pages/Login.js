@@ -20,6 +20,7 @@ const LoginForm = ({ setUser }) => {
             console.log(res);
             //set user in state to login email
             setUser(res.data)
+            console.log(res.data.name + " logged in!")
         })
         .catch(err => {
             console.log(err);

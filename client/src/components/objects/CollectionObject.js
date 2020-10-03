@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Card, Button, Icon, Label } from 'semantic-ui-react'
+import { Card, Icon, Label } from 'semantic-ui-react'
 import API from '../utils/API';
 
 const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageSmall, objectDate, objectURL, objectID, GalleryNumber}, user, loadCollection}) => {
@@ -10,6 +10,14 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
         backgroundSize: "cover",
         borderRadius: ".28571429rem",
         marginBottom: "10px"
+    }
+
+    const removeButton = {
+        top: "-3px"
+    }
+
+    const removeIcon = {
+        top: "-.5em"
     }
 
     //Removes a specific object from the database using API.deleteObject
@@ -28,10 +36,11 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
 
     //Conditional render for On View label
     const isOnView = GalleryNumber
+    const mapURL = `https://maps.metmuseum.org/galleries/fifth-ave/2/${GalleryNumber}`
     let onViewLabel;
 
     if(isOnView) {
-        onViewLabel = <Label fluid color='red'>
+        onViewLabel = <Label fluid color='green' as="a" href={mapURL} >
         On View
         <Label.Detail>Gallery: {GalleryNumber}</Label.Detail>
         </Label>
@@ -45,6 +54,20 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
         <div>
             <Fragment>
                 <Card style={{margin: "10px"}}>
+                    <Label 
+                        as='button' 
+                        corner="right" 
+                        color="red" 
+                        style={removeButton}
+                        onClick={removeFromCollection}
+                        >
+                        <Icon 
+                            name="remove" 
+                            corner="right" 
+                            attached="corner" 
+                            style={removeIcon} 
+                        />
+                    </Label>
                     <Card.Content style={{ padding: "0em" }}>
                         <Card.Header style={ cardImageStyle }/>
                         <Card.Header> {title} </Card.Header>
@@ -55,16 +78,7 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
                             {artistDisplayName}
                         </Card.Description>
                         {onViewLabel}
-                    </Card.Content>
-                    <Button 
-                        animated='vertical'
-                        attached="bottom" 
-                        onClick={removeFromCollection} >
-                        <Button.Content hidden>Remove From Collection</Button.Content>
-                        <Button.Content visible>
-                            <Icon name='remove' />
-                        </Button.Content>
-                    </Button>   
+                    </Card.Content> 
                 </Card>
             </Fragment>
         </div>
