@@ -10,6 +10,9 @@ import About from "./components/pages/About";
 import MyCollection from "./components/pages/MyCollection";
 import SignUpForm from "./components/pages/SignUp";
 import LoginForm from "./components/pages/Login";
+import { Container } from 'semantic-ui-react'
+import HomeHeader from "./components/layout/headers/HomeHeader";
+import MyCollectionHeader from "./components/layout/headers/MyCollectionHeader";
 
 
 const App = () => {
@@ -68,6 +71,7 @@ const App = () => {
               <Route exact path="/"
               render={props => (
                 <Fragment>
+                  <HomeHeader />
                   <Search 
                     searchObjects={searchObjects} 
                     clearObjects={clearObjects}
@@ -80,7 +84,10 @@ const App = () => {
               <Route 
                 exact path="/mycollection"
                 render={(props) => (
+                  <Fragment>
+                  <MyCollectionHeader />
                   <MyCollection {...props} user={user} />
+                  </Fragment>
                 )}
               />
               <Route 

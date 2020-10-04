@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import React, { useState, Fragment } from 'react'
+import { Button, Form, Grid, Header, Image, Message, Segment, Container, Icon } from 'semantic-ui-react';
 import axios from "axios";
+import SignupHeader from '../layout/headers/SignupHeader';
 
 const SignUpForm = () => {
     const [email, setEmail] = useState("");
@@ -28,10 +29,13 @@ const SignUpForm = () => {
     };
 
     return (
+        <Fragment>
+            <SignupHeader />
+            <Container>
     <Grid textAlign='center' style={{ height: '10vh' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='grey' textAlign='center'>
-            <Image src='' /> Sign up for an account
+            <Icon name='edit' /> Sign Up For An Account
         </Header>
         <Form size='large' onSubmit={onSubmit}>
             <Segment stacked>
@@ -75,6 +79,8 @@ const SignUpForm = () => {
         </Message>
         </Grid.Column>
     </Grid>
+            </Container>
+        </Fragment>
     )
 }
 

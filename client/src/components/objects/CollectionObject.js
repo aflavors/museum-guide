@@ -20,6 +20,10 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
         top: "-.5em"
     }
 
+    const cardMargin = {
+        margin: "5px"
+    }
+
     //Removes a specific object from the database using API.deleteObject
     function removeFromCollection (event) {
         event.preventDefault();
@@ -40,12 +44,12 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
     let onViewLabel;
 
     if(isOnView) {
-        onViewLabel = <Label fluid color='green' as="a" href={mapURL} >
+        onViewLabel = <Label fluid color='green' as="a" href={mapURL} target="blank" style={cardMargin}>
         On View
         <Label.Detail>Gallery: {GalleryNumber}</Label.Detail>
         </Label>
     } else {
-        onViewLabel = <Label basic color='grey'>
+        onViewLabel = <Label basic color='grey' as="a" href={objectURL} target="blank" style={cardMargin}>
         Not Currently On Display at Museum
         </Label>
     }
@@ -70,11 +74,11 @@ const CollectionObject = ({object: {_id, title, artistDisplayName, primaryImageS
                     </Label>
                     <Card.Content style={{ padding: "0em" }}>
                         <Card.Header style={ cardImageStyle }/>
-                        <Card.Header> {title} </Card.Header>
-                        <Card.Meta>
+                        <Card.Header style={cardMargin}> {title} </Card.Header>
+                        <Card.Meta style={cardMargin}>
                             <span className='date'> {objectDate} </span>
                         </Card.Meta>
-                        <Card.Description>
+                        <Card.Description style={cardMargin}>
                             {artistDisplayName}
                         </Card.Description>
                         {onViewLabel}

@@ -36,12 +36,6 @@ export default class MainMenu extends Component {
               onClick={this.handleItemClick}
             />
             <Menu.Item as={ Link }
-              to='/search'
-              name='search'
-              active={activeItem === 'search'}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item as={ Link }
               to='/mycollection'
               name='my collection'
               active={activeItem === 'my collection'}
@@ -68,7 +62,6 @@ export default class MainMenu extends Component {
             </Menu.Menu>
           </Menu>
           <h2 style={ headerTextStyle }>Museum Guide</h2>
-          <Image style={ userStyle } src='https://i.ibb.co/xgHC6qd/Header-Test.jpg' fluid />
         </div>
       )
     }
