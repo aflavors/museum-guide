@@ -9,7 +9,11 @@ var userStyle = {
 
 var headerTextStyle = {
     textAlign: "right",
-    marginRight: "10px"
+    marginRight: "10px",
+    marginBottom: "10px",
+    fontFamily: "Noto Sans JP",
+    fontWeight: "500",
+    fontSize: "34px"
 }
 
 export default class MainMenu extends Component {
