@@ -19,7 +19,8 @@ const Search = ({ searchObjects, clearObjects, showClear }) => {
     const searchMainStyle = {
     textAlign: "left",
     marginLeft: "10px",
-    marginTop: "10px"
+    marginTop: "10px",
+    minHeight: 900
     }
     
     return (

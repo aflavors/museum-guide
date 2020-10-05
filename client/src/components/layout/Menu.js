@@ -1,6 +1,7 @@
 import React, { Component, Segment } from 'react'
 import { Menu, Image, Dropdown } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link';
 
 var userStyle = {
     height: "50%",
@@ -30,6 +31,12 @@ export default class MainMenu extends Component {
             <Menu.Item as={ Link }
               to='/'
               name='Home'
+              active={activeItem === 'Home'}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item as={ HashLink }
+              to="/#search_section"
+              name='Search'
               active={activeItem === 'Home'}
               onClick={this.handleItemClick}
             />

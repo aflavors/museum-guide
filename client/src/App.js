@@ -13,6 +13,7 @@ import LoginForm from "./components/pages/Login";
 import { Container } from 'semantic-ui-react'
 import HomeHeader from "./components/layout/headers/HomeHeader";
 import MyCollectionHeader from "./components/layout/headers/MyCollectionHeader";
+import HomeSegment from "./components/layout/segments/HomeSegment";
 
 
 const App = () => {
@@ -72,11 +73,14 @@ const App = () => {
               render={props => (
                 <Fragment>
                   <HomeHeader />
-                  <Search 
+                  <HomeSegment />
+                  <section id="search_section" >
+                  <Search
                     searchObjects={searchObjects} 
                     clearObjects={clearObjects}
                     showClear={objects.length > 0 ? true : false}
                   />
+                  </section>
               <Objects loading={loading} objects={objects} user={user}/>
                 </Fragment>
               )}/>

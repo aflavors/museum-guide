@@ -58,7 +58,7 @@ const ObjectItem = ({object: {title, artistDisplayName, primaryImageSmall, objec
     return (
         <Fragment>
             <Card>
-                <Card.Content style={{ padding: "0em" }}>
+                <Card.Content style={{ padding: "0.5em" }}>
                     <Card.Header style={ cardImageStyle }/>
                     <Card.Header> {title} </Card.Header>
                     <Card.Meta>
