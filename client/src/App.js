@@ -14,6 +14,7 @@ import { Container } from 'semantic-ui-react'
 import HomeHeader from "./components/layout/headers/HomeHeader";
 import MyCollectionHeader from "./components/layout/headers/MyCollectionHeader";
 import HomeSegment from "./components/layout/segments/HomeSegment";
+import SearchHeader from "./components/layout/headers/SearchHeader"
 
 
 const App = () => {
@@ -75,6 +76,7 @@ const App = () => {
                   <HomeHeader />
                   <HomeSegment />
                   <section id="search_section" >
+                    <SearchHeader />
                   <Search
                     searchObjects={searchObjects} 
                     clearObjects={clearObjects}
