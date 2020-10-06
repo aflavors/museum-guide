@@ -78,8 +78,10 @@ export default class MainMenu extends Component {
               />
               {this.props.user && <Menu.Item
                 name='log out'
+                as="label"
                 active={activeItem === 'logout'}
                 onClick={this.logout}
+                style={{ backgroundColor: "grey", color: "white" }}
               />}
             </Menu.Menu>
           </Menu>
