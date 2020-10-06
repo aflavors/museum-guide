@@ -1,6 +1,8 @@
 # Museum Guide
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![](https://i.ibb.co/Hr3TvRd/Screen-Shot-2020-10-05-at-11-27-13-PM.png)
+
 ## Table of Contents
 - [Description](#Description)
 - [Installation](#Installation)
