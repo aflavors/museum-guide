@@ -67,7 +67,8 @@ const App = () => {
         <div>
           <div className="App">
             <MainMenu
-              setUser={setUser} 
+              setUser={setUser}
+              user={user} 
             />
             {/* <Switch> */}
               <Route exact path="/"

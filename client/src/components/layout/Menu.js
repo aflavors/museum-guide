@@ -18,13 +18,24 @@ var headerTextStyle = {
 }
 
 export default class MainMenu extends Component {
-    state = { activeItem: '' }
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: this.props.user,
+      setUser: this.props.setUser
+    };
+  }
+    state = { 
+      activeItem: '',
+    }
   
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+    logout = () => window.location.reload()
+
     render() {
       const { activeItem } = this.state
-  
+
       return (
         <div>
           <Menu pointing secondary>
@@ -66,9 +77,9 @@ export default class MainMenu extends Component {
                 onClick={this.handleItemClick}
               />
               {this.props.user && <Menu.Item
-                name='logout'
+                name='log out'
                 active={activeItem === 'logout'}
-                onClick={this.handleItemClick}
+                onClick={this.logout}
               />}
             </Menu.Menu>
           </Menu>
