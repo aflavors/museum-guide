@@ -6,6 +6,8 @@ import LoginHeader from '../layout/headers/LoginHeader';
 const LoginForm = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setError] = useState(false)
+  const [loginSuccess, setSuccess] = useState(false)
 
   const onSubmit = event => {
     event.preventDefault();
@@ -22,10 +24,13 @@ const LoginForm = ({ setUser }) => {
             //set user in state to login email
             setUser(res.data)
             console.log(res.data.name + " logged in!")
+            setSuccess(true)
+            setError(false)
         })
         .catch(err => {
             console.log(err);
             console.log(err.response);
+            setError(true)
         });
   };
   
@@ -39,7 +44,7 @@ const LoginForm = ({ setUser }) => {
           <Header as='h2' color='grey' textAlign='center'>
             <Icon name='sign in' /> Log In To Your Account
           </Header>
-          <Form size='large' onSubmit={onSubmit}>
+          <Form size='large' onSubmit={onSubmit} error={loginError} success={loginSuccess}>
             <Segment stacked>
               <Form.Input 
                 fluid icon='user' 
@@ -57,6 +62,16 @@ const LoginForm = ({ setUser }) => {
                 placeholder='Password'
                 type='password'
                 onChange={event => setPassword(event.target.value)}
+              />
+              <Message
+                error
+                header='Error'
+                content='Incorrect e-mail address or password.'
+              />
+              <Message 
+                success
+                header="Log In Successful"
+                content="You are now logged in." 
               />
 
               <Button color='grey' fluid size='large'>
