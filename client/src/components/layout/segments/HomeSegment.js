@@ -8,7 +8,7 @@ const HomeSegment = () => {
 
     return (
         <Fragment>
-            <Segment style={{ minHeight: 800, padding: '1em 0em', backgroundColor: "rgba(229, 224, 217, 0.09)" }} vertical>
+            <Segment style={{ minHeight: 1500, padding: '1em 0em', backgroundColor: "rgba(229, 224, 217, 0.09)" }} vertical>
                 <Grid container stackable verticalAlign='middle'>
                     <Grid.Row>
                      <Grid.Column floated='left' width={8}>
