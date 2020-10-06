@@ -19,6 +19,9 @@ Museum Guide was built with a MERN stack and is an application that allows users
 
 Museum Guide takes advantage of The Metropolitan Museum of Art’s [Open Access Program](https://www.metmuseum.org/about-the-met/policies-and-documents/open-access) to allow users to browse the more than 470,000 artworks in its collection.
 
+![](https://i.ibb.co/dfCmDNd/Screen-Shot-2020-10-05-at-11-28-31-PM.png)
+![](https://i.ibb.co/vY1Srw6/Screen-Shot-2020-10-05-at-11-29-08-PM.png)
+
 ## Installation
 
 Start by installing front and backend dependencies. While in this directory, run the following command:
