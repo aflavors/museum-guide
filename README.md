@@ -1,12 +1,23 @@
-# Create React Express App
+# Museum Guide
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## About This Boilerplate
+## Table of Contents
+- [Description](#Description)
+- [Installation](#Installation)
+- [Deployed](#Deployed)
+- [Questions](#Questions)
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Description
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+Museum Guide was built with a MERN stack and is an application that allows users to browse, view, and add objects to custom collections from the more than 470,000 artworks in The Metropolitan Museum of Art's collection.
 
-## Starting the app locally
+- Most museums display only 2-4% of their entire collections at one time. 
+
+- Many people visiting them have no idea of the vast collections stored in vaults throughout the building and warehouses across the world.
+
+- Museum Guide takes advantage of The Metropolitan Museum of Art’s [Open Access Program](https://www.metmuseum.org/about-the-met/policies-and-documents/open-access) to allow users to browse the more than 470,000 artworks in its collection.
+
+## Installation
 
 Start by installing front and backend dependencies. While in this directory, run the following command:
 
@@ -22,8 +33,12 @@ After both installations complete, run the following command in your terminal:
 npm start
 ```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+## Deployed
 
-## Deployment (Heroku)
+Museum Guide is deployed [here](https://flavorsmuseum-guide.herokuapp.com/) on Heroku.
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+### Questions
+
+Museum Guide was created by [aflavors](https://github.com/aflavors).
+
+If you have any questions, please contact me at akeemflavors@gmail.com. 
