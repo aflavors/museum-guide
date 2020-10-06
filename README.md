@@ -15,7 +15,7 @@ Museum Guide was built with a MERN stack and is an application that allows users
 
 - Many people visiting them have no idea of the vast collections stored in vaults throughout the building and warehouses across the world.
 
-- Museum Guide takes advantage of The Metropolitan Museum of Art’s [Open Access Program](https://www.metmuseum.org/about-the-met/policies-and-documents/open-access) to allow users to browse the more than 470,000 artworks in its collection.
+Museum Guide takes advantage of The Metropolitan Museum of Art’s [Open Access Program](https://www.metmuseum.org/about-the-met/policies-and-documents/open-access) to allow users to browse the more than 470,000 artworks in its collection.
 
 ## Installation
 
